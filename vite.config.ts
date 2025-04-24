@@ -10,4 +10,12 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      // Disable rollup optimizations to avoid native dependencies
+      treeshake: false,
+      // Exclude native dependencies
+      external: ['@rollup/rollup-linux-x64-gnu'],
+    },
+  },
 })

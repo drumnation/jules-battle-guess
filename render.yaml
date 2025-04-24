@@ -2,11 +2,13 @@ services:
   - type: web
     name: battle-guess
     runtime: static
-    buildCommand: npm install && npm run build
+    buildCommand: rm -rf node_modules package-lock.json && NODE_OPTIONS="--max-old-space-size=2048" npm install --no-optional && npm run build
     staticPublishPath: ./dist
     envVars:
       - key: NODE_VERSION
-        value: 18
+        value: 16
+      - key: NPM_CONFIG_OPTIONAL
+        value: "false"
     routes:
       - type: rewrite
         source: /*
