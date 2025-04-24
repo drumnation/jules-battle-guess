@@ -2,7 +2,7 @@ services:
   - type: web
     name: battle-guess
     runtime: static
-    buildCommand: pnpm install && pnpm build
+    buildCommand: pnpm install --no-frozen-lockfile && pnpm run build
     staticPublishPath: ./dist
     envVars:
       - key: NODE_VERSION
