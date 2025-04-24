@@ -2,11 +2,11 @@ services:
   - type: web
     name: battle-guess
     runtime: static
-    buildCommand: pnpm install --no-frozen-lockfile && pnpm run build
+    buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     envVars:
       - key: NODE_VERSION
-        value: 20
+        value: 18
     routes:
       - type: rewrite
         source: /*
